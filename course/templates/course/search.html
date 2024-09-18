@@ -1,0 +1,8 @@
+<!-- base.html -->
+<nav>
+    <!-- Other navbar items -->
+    <form action="{% url 'search_courses' %}" method="get" class="search-form">
+        <input type="text" name="q" placeholder="Search for courses...">
+        <button type="submit">Search</button>
+    </form>
+</nav>

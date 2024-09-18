@@ -1,0 +1,19 @@
+<!-- whiteboard/templates/whiteboard.html -->
+ {%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Collaborative Whiteboard</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collaborative Whiteboard</h1>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script src="{% static 'whiteboard.js' %}"></script>
+</body>
+</html>

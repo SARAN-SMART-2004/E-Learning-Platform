@@ -1,0 +1,201 @@
+{% extends "main/design/header.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<style>
+    .report-container{
+    margin: 0px;}
+</style>
+
+             <div class="box-container">
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic-heading">60.5k</h2>
+                        <h2 class="topic"> <a href="#">All Courses</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-book fa-bounce" style="color: white;"></i>
+                </div>
+                {% if current_user.status == 'tutor' %}
+                <div class="box box2"  >
+                    <div class="text">
+                        <h2 class="topic-heading">150</h2>
+                        <h2 class="topic"> <a href="#"> Create Quiz</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-clipboard-check fa-flip" style="color: white;"></i>
+                </div>
+                
+                <div class="box box3">
+                    <div class="text">
+                        <h2 class="topic-heading">320</h2>
+                        <h2 class="topic"> <a href="#">Create Course</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-pen-to-square" style="color: white;"></i>                
+                </div>
+                {%endif%}
+
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic-heading">70</h2>
+                        <h2 class="topic"> <a href="#">Search Courses</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-magnifying-glass fa-spin" style="color: #ffffff;"></i>
+                </div>
+            
+
+
+
+
+
+
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic-heading">60.5k</h2>
+                        <h2 class="topic"> <a href="#">Ongoing Courses</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-bars-progress fa-flip" style="color: white;"></i>
+                </div>
+
+                <div class="box box2"  >
+                    <div class="text">
+                        <h2 class="topic-heading">150</h2>
+                        <h2 class="topic"> <a href="#">Completed Courses</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-square-check fa-beat" style="color: white;"></i>
+                </div>
+                {% if current_user.status == 'student' %}
+                <div class="box box3">
+                    <div class="text">
+                        <h2 class="topic-heading">320</h2>
+                        <h2 class="topic"> <a href="#">Saved Course</a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-laptop fa-bounce" style="color: white;"></i>
+                </div>
+                {%endif%}
+                {% if current_user.status == 'tutor' %}
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic-heading">70</h2>
+                        <h2 class="topic"> <a href="{% url 'meeting' %}">Meeting Creation </a></h2>
+                    </div>
+
+                    <i class="fa-solid fa-users fa-flip" style="color: white;"></i>
+                </div>
+                {% endif%}
+                {% if current_user.status == 'student' %}
+            
+            <div class="box box1">
+                <div class="text">
+                    <h2 class="topic-heading">60.5k</h2>
+                    <h2 class="topic"> <a href="#">My Enrolled Courses</a></h2>
+                </div>
+
+                <i class="fa-solid fa-user-graduate" style="color: white;"></i>
+            </div>
+            
+            <div class="box box2"  >
+                <div class="text">
+                    <h2 class="topic-heading">150</h2>
+                    <h2 class="topic"> <a href="#">Group Chat</a></h2>
+                </div>
+
+                <i class="fa-solid fa-user-check fa-beat-fade" style="color: white;"></i>
+            </div>
+            
+
+            <div class="box box3">
+                <div class="text">
+                    <h2 class="topic-heading">320</h2>
+                    <h2 class="topic"> <a href="#">Learning Tools </a></h2>
+                </div>
+
+                <i class="fa-solid fa-screwdriver-wrench fa-bounce" style="color: white;"></i>
+            </div>
+            {% endif%}
+            <div class="box box4">
+                <div class="text">
+                    <h2 class="topic-heading">70</h2>
+                    <h2 class="topic"> <a href="#">Assignments</a></h2>
+                </div>
+
+                <i class="fa-solid fa-list-check fa-beat-fade" style="color: white;"></i>
+            </div>
+
+
+
+    
+
+            
+            <div class="box box1">
+                <div class="text">
+                    <h2 class="topic-heading">60.5k</h2>
+                    <h2 class="topic"> <a href="#">Multimedia Resources</a></h2>
+                </div>
+
+                <i class="fa-solid fa-photo-film"style="color: white;"></i>
+            </div>
+
+            <div class="box box2"  >
+                <div class="text">
+                    <h2 class="topic-heading">150</h2>
+                    <h2 class="topic"> <a href=""> Instructors</a></h2>
+                </div>
+
+                <i class="fa-solid fa-chalkboard-user"style="color: white;"></i>
+
+            </div>
+
+            <div class="box box3">
+                <div class="text">
+                    <h2 class="topic-heading">320</h2>
+                    <h2 class="topic"> <a href="https://www.tamilnadutourism.tn.gov.in/destinations">Study Tips
+                    </a></h2>
+                </div>
+                <i class="fa-solid fa-photo-film"style="color: white;"></i>
+                
+            </div>
+
+            <div class="box box4">
+                <div class="text">
+                    <h2 class="topic-heading">70</h2>
+                    <h2 class="topic"> <a href="">Games </a></h2>
+                </div>
+
+                <i class="fa-solid fa-trophy"style="color: white;"></i>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+            {% else %}
+            <div class="box-container">
+                <p>please login</p>
+            </div>
+
+            {% endif %}
+            {% endblock content %}

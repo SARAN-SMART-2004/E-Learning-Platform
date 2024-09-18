@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Course</title>
+    <link rel="stylesheet" href="{%static 'css/create.css'%}">
+</head>
+<body>
+    <header>
+        <h1>Add New Course</h1>
+        <a href="{% url 'homepage' %}">
+            <button>Back</button>
+        </a>
+    </header>
+    
+    <main>
+
+        <section id="course-info">
+            <input type="text" placeholder="Add title" id="course-title">
+            <div id="editor-toolbar">
+                <select id="paragraph-style">
+                    <option value="p">Paragraph</option>
+                    <option value="h1">Heading 1</option>
+                    <option value="h2">Heading 2</option>
+                    <option value="h3">Heading 3</option>
+                </select>
+                <button class="toolbar-btn" data-command="bold" title="Bold">B</button>
+                <button class="toolbar-btn" data-command="italic" title="Italic">I</button>
+                <button class="toolbar-btn" data-command="underline" title="Underline">U</button>
+                <button class="toolbar-btn" data-command="strikeThrough" title="Strikethrough">abc</button>
+                <button class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List">•</button>
+                <button class="toolbar-btn" data-command="insertOrderedList" title="Numbered List">1.</button>
+                <button class="toolbar-btn" data-command="justifyLeft" title="Align Left">≡</button>
+                <button class="toolbar-btn" data-command="justifyCenter" title="Align Center">≡</button>
+                <button class="toolbar-btn" data-command="justifyRight" title="Align Right">≡</button>
+                <button class="toolbar-btn" data-command="indent" title="Indent">→</button>
+                <button class="toolbar-btn" data-command="outdent" title="Outdent">←</button>
+                <button class="toolbar-btn" data-command="createLink" title="Insert Link">🔗</button>
+                <button class="toolbar-btn" data-command="unlink" title="Remove Link">🔗⃠</button>
+                <button class="toolbar-btn" data-command="insertImage" title="Insert Image">🖼️</button>
+                <button class="toolbar-btn" data-command="removeFormat" title="Clear Formatting">Tx</button>
+                <button class="toolbar-btn" data-command="undo" title="Undo">↩️</button>
+                <button class="toolbar-btn" data-command="redo" title="Redo">↪️</button>
+                <button class="toolbar-btn" data-command="showCode" title="Show HTML">{ }</button>
+            </div>
+            <div id="content-area" contenteditable="true"></div>
+            <button id="add-media">Add Media</button>
+        </section>
+        
+        <aside>
+            <section id="publish">
+                <h2>Publish</h2>
+                <button id="save-draft">Save Draft</button>
+                <button id="preview">Preview</button>
+                <p>Status: Draft <a href="#">Edit</a></p>
+                <p>Visibility: Public <a href="#">Edit</a></p>
+                <p>Publish immediately <a href="#">Edit</a></p>
+                <button id="publish-btn">Publish</button>
+            </section>
+            
+            <section id="course-categories">
+                <h2>Course Categories</h2>
+                <div id="categories-list"></div>
+                <a href="#" id="add-new-category">+ Add New Category</a>
+            </section>
+            
+            <section id="tags">
+                <h2>Tags</h2>
+                <input type="text" id="tag-input" placeholder="Add new tag">
+                <button id="add-tag">Add</button>
+                <p>Separate tags with commas</p>
+            </section>
+            
+            <section id="featured-image">
+                <h2>Featured image</h2>
+                <button id="set-featured-image">Set featured image</button>
+            </section>
+        </aside>
+        
+        <section id="course-settings">
+            <h2>Course Settings</h2>
+            <div class="setting">
+                <label for="max-students">Maximum Students</label>
+                <input type="number" id="max-students" value="0">
+                <p>Number of students that can enrol in this course. Set 0 for no limits.</p>
+            </div>
+            <div class="setting">
+                <label for="difficulty-level">Difficulty Level</label>
+                <select id="difficulty-level">
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                </select>
+                <p>Course difficulty level</p>
+            </div>
+            <div class="setting">
+                <label for="public-course">Public Course</label>
+                <input type="checkbox" id="public-course">
+                <p>Make This Course Public. No enrollment required.</p>
+            </div>
+            <div class="setting">
+                <label for="qa-enabled">Q&A</label>
+                <input type="checkbox" id="qa-enabled">
+                <p>Enable Q&A section for your course</p>
+            </div>
+        </section>
+        
+        <section id="course-builder">
+            <h2>Course Builder</h2>
+            <button id="add-new-topic">+ Add new topic</button>
+            <div id="topics-list"></div>
+        </section>
+        
+        <!-- Modal Structure -->
+        <div id="topic-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add New Topic</h3>
+                <label for="topic-name">Topic Name</label>
+                <input type="text" id="topic-name" placeholder="Enter Topic Name" required>
+                <label for="topic-summary">Topic Summary</label>
+                <textarea id="topic-summary" placeholder="Enter Topic Summary"></textarea>
+                <button id="save-topic" class="styled-button">Add Topic</button>
+            </div>
+        </div>
+        
+        
+        <section id="additional-data">
+            <h2>Additional Data</h2>
+            <div class="data-field">
+                <label for="course-benefits">What Will I Learn?</label>
+                <textarea id="course-benefits" placeholder="Write here the course benefits (One per line)"></textarea>
+            </div>
+            <div class="data-field">
+                <label for="target-audience">Targeted Audience</label>
+                <textarea id="target-audience" placeholder="Specify the target audience that will benefit the most from the course. (One line per target audience.)"></textarea>
+            </div>
+            <div class="data-field">
+                <label for="course-duration">Total Course Duration</label>
+                <input type="number" id="course-duration-hours" placeholder="Hours">
+                <input type="number" id="course-duration-minutes" placeholder="Minutes">
+            </div>
+            <div class="data-field">
+                <label for="materials-included">Materials Included</label>
+                <textarea id="materials-included" placeholder="A list of assets you will be providing for the students in this course (One per line)"></textarea>
+            </div>
+            <div class="data-field">
+                <label for="requirements">Requirements/Instructions</label>
+                <textarea id="requirements" placeholder="Additional requirements or special instructions for the students (One per line)"></textarea>
+            </div>
+        </section>
+        
+        <section id="video-upload">
+            <h2>Video</h2>
+            <h3>Course Intro Video</h3>
+            <select id="video-type">
+                <option>HTML 5 (mp4)</option>
+            </select>
+            <div id="upload-area">
+                <p>Drag & Drop Your Video</p>
+                <p>File Format: .mp4</p>
+                <p>or</p>
+                <button id="browse-file">Browse File</button>
+                <input type="file" id="file-input" accept="video/mp4" style="display: none;">
+            </div>
+        </section>
+    </main>
+
+    <script src="{%static 'create.js'%}"></script>
+</body>
+</html>

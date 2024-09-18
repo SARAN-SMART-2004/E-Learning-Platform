@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll in Course</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Enroll in {{ course.title }}</h2>
+        <p><strong>Instructor:</strong> {{ course.instructor.username }}</p>
+        <p><strong>Description:</strong> {{ course.description }}</p>
+        <p><strong>Duration:</strong> {{ course.duration }} hours</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Enroll Now</button>
+        </form>
+        <a href="{% url 'course_list' %}">Back to Course List</a>
+    </div>
+</body>
+</html>

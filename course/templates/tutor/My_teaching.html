@@ -1,0 +1,321 @@
+{% extends "main/design/header.html" %}
+{% block content %}
+<style>
+  :root {
+    --primary-color: #4caf50;
+    --secondary-color: #45a049;
+    --background-color: #f0f0f0;
+    --card-background: rgba(255, 255, 255, 0.2);
+    --text-color: #333;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --glass-morphism-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --glass-morphism-blur: blur(10px);
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:none;
+    color: var(--text-color);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    background-color: var(--card-background);
+    border-radius: 20px;
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+    padding: 10px;
+  }
+
+  .course-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .course-card {
+    background-color: var(--card-background);
+    border-radius: 20px;
+    padding: 20px;
+    width: calc(33.333% - 20px); /* 3 cards per row */
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .course-image {
+    width: 100%;
+    height: 150px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .course-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .course-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .tag-live {
+    background-color: #ff5722;
+    color: white;
+  }
+
+  .tag-free {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .tag-public {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .course-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .stat {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 10px;
+    flex: 1;
+    margin: 5px;
+    min-width: 100px;
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .stat-value {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--glass-morphism-shadow);
+    backdrop-filter: var(--glass-morphism-blur);
+  }
+
+  .button:hover {
+    background-color: var(--secondary-color);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .course-card {
+      width: calc(50% - 20px);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .course-card {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="header">
+    <h1>My Teaching Courses</h1>
+    <button class="button">New Course</button>
+  </div>
+  <div id="course-list" class="course-list">
+    <!-- Course 1 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">Build An eCommerce Site With WooCommerce</div>
+      <div class="course-tags">
+        <span class="tag tag-live">Live</span>
+        <span class="tag tag-free">Free</span>
+        <span class="tag tag-public">Public</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$568.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1852</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.5</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">Python Development Masterclass</div>
+      <div class="course-tags">
+        <span class="tag tag-free">Free</span>
+        <span class="tag tag-public">Public</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$1000.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1200</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.8</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 3 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">Fullstack Web Development</div>
+      <div class="course-tags">
+        <span class="tag tag-live">Live</span>
+        <span class="tag tag-free">Free</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$750.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">980</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.7</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 4 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">React Native for Beginners</div>
+      <div class="course-tags">
+        <span class="tag tag-live">Live</span>
+        <span class="tag tag-public">Public</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$600.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1500</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.9</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 5 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">Data Science with Python</div>
+      <div class="course-tags">
+        <span class="tag tag-free">Free</span>
+        <span class="tag tag-public">Public</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$890.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1700</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.6</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 6 -->
+    <div class="course-card">
+      <div class="course-image"></div>
+      <div class="course-title">Machine Learning A-Z</div>
+      <div class="course-tags">
+        <span class="tag tag-live">Live</span>
+        <span class="tag tag-free">Free</span>
+        <span class="tag tag-public">Public</span>
+      </div>
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">$950.0</div>
+          <div class="stat-label">Earned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1800</div>
+          <div class="stat-label">Enrollments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4.8</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
